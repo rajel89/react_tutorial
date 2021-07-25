@@ -24,13 +24,23 @@ class App extends Component {
     });
   }
 
+  goToPreviousBook() {
+    let tempBookNumber = this.state.bookNumber;
+    tempBookNumber--;
+    if (tmepBookNUmber < 0) tempBookNumber = this.books.length - 1;
+    this.setState({
+      bookNumber: tempBookNumber,
+      s,
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">
         <TitleBar />
         <div className="row row-spacer">
           <div className="col-md-4">
-          <button onClick={()=> this.goToNextBook()}>Previous Book</button>
+            <button onClick={() => this.goToNextBook()}>Previous Book</button>
             {/*Button here to move to the previous boook viewed*/}
           </div>
           <div className="col-md-4">
@@ -39,7 +49,7 @@ class App extends Component {
             <h4>{this.books[this.state.bookNumber].author}</h4>
           </div>
           <div className="col-md-4">
-              <button onClick={()=> this.goToNextBook()}>Next Book</button>
+            <button onClick={() => this.goToNextBook()}>Next Book</button>
             {/*Button here to move to the previous book viewed*/}
           </div>
         </div>
