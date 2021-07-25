@@ -10,23 +10,36 @@ class App extends Component {
       { title: "The First and Last Freedom", author: "Jiddu Krishnamurti" },
     ];
     this.state = {
-      bookNumber: 1,
+      bookNumber: 2,
     };
   }
+  goToNextBook() {
+    let tempBookNumber = this.state.bookNumber;
+    tempBookNumber++;
+    if (tempBookNumber === this.books.length) {
+      tempBookNumber = 0;
+    }
+    this.setState({
+      bookNumber: tempBookNumber,
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">
         <TitleBar />
         <div className="row row-spacer">
           <div className="col-md-4">
+          <button onClick={()=> this.goToNextBook()}>Previous Book</button>
             {/*Button here to move to the previous boook viewed*/}
           </div>
           <div className="col-md-4">
-              {/*Display Book with Cover here*/}
-              <h1>{this.books[this.state.bookNumber].title}</h1>
-              <h4>{this.books[this.state.bookNumber].author}</h4>
+            {/*Display Book with Cover here*/}
+            <h1>{this.books[this.state.bookNumber].title}</h1>
+            <h4>{this.books[this.state.bookNumber].author}</h4>
           </div>
           <div className="col-md-4">
+              <button onClick={()=> this.goToNextBook()}>Next Book</button>
             {/*Button here to move to the previous book viewed*/}
           </div>
         </div>
