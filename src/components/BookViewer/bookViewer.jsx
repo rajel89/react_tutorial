@@ -1,5 +1,5 @@
 import React from "react";
-import Book from '/../Book/book';
+import Book from '../Book/book';
 
 function BookViewer(props) {
   return (

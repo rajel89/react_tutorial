@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TitleBar from "./TitleBar/titleBar";
 import BookViewer from "./BookViewer/bookViewer";
+import BookCreator from "./BookCreator/bookCreator";
 
 class App extends Component {
   constructor(props) {
@@ -11,9 +12,17 @@ class App extends Component {
       { title: "The First and Last Freedom", author: "Jiddu Krishnamurti" },
     ];
     this.state = {
-      bookNumber: 2,
+      bookNumber: 0,
     };
   }
+
+  addNewBook(book) {
+    this.book.push(book);
+    this.setState({
+      bookNumber: this.books.length - 1,
+    });
+  }
+
   goToNextBook() {
     let tempBookNumber = this.state.bookNumber;
     tempBookNumber++;
@@ -43,7 +52,7 @@ class App extends Component {
           nextBook={() => this.goToNextBook()}
           previousBook={() => this.goToPreviousBook()}
         />
-
+        <BookCreator addNewBook={this.addNewBook.bind(this)} />
       </div>
     );
   }
