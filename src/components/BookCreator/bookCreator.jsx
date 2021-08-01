@@ -14,9 +14,7 @@ class BookCreator extends Component {
   handleChange(event) {
     this.setState({
       [event.targ.name]: event.target.value,
-      
     });
-  
   }
   handleSubmit(event) {
     event.preventDefault();
